@@ -26,16 +26,25 @@ public class DBService {
 	private ChamadoRepository chamadoRepository;
 	
 	public void instanciaDB() {
-		Tecnico tec1 = new Tecnico(null, "Valdir Cesar", "14280807752", "valdir@email.com", "senha1");
+		Tecnico tec1 = new Tecnico(null, "Valdir Cesar", "10947364064", "valdir@email.com", "senha1");
 		tec1.addPerfil(Perfil.ADMIN);
+		Tecnico tec2 = new Tecnico(null, "Eduardo", "14280807752", "eduardo@email.com", "senha1");
+		Tecnico tec3 = new Tecnico(null, "Filipe", "99514371097", "filipe@email.com", "senha1");
+		Tecnico tec4 = new Tecnico(null, "Fabio", "96337234006", "fabio@email.com", "senha1");
 		
-		Cliente cli1 = new Cliente(null, "Linus", "743.225.880-50", "linus@email.com", "senha2");
+		Cliente cli1 = new Cliente(null, "Linus", "98183633021", "linus@email.com", "senha2");
+		Cliente cli2 = new Cliente(null, "Bill", "24756230040", "bill@email.com", "senha2");
+		Cliente cli3 = new Cliente(null, "Bob", "76196118005", "bob@email.com", "senha2");
+		Cliente cli4 = new Cliente(null, "Jorge", "64010306076", "jorge@email.com", "senha2");
+	
 		
-		Chamado chamado1 = new Chamado(null, Prioridade.MEDIA, Status.ANDAMENTO, "Chamado 01", "Primeiro chamado", tec1, cli1);         
+		Chamado chamado1 = new Chamado(null, Prioridade.MEDIA, Status.ANDAMENTO, "Chamado 01", "Primeiro chamado", tec1, cli1);
+		Chamado chamado2 = new Chamado(null, Prioridade.BAIXA, Status.ABERTO, "Chamado 02", "Primeiro chamado", tec2, cli3);
+		Chamado chamado3 = new Chamado(null, Prioridade.ALTA, Status.ENCERRADO, "Chamado 03", "Primeiro chamado", tec3, cli4);
 		
-		tecnicoRepository.saveAll(Arrays.asList(tec1));
-		clienteRepository.saveAll(Arrays.asList(cli1));
-		chamadoRepository.saveAll(Arrays.asList(chamado1));
+		tecnicoRepository.saveAll(Arrays.asList(tec1,tec2,tec3,tec4));
+		clienteRepository.saveAll(Arrays.asList(cli1,cli2,cli3,cli4));
+		chamadoRepository.saveAll(Arrays.asList(chamado1,chamado2,chamado3));
 	}
 	
 }
